@@ -25,7 +25,7 @@ O aplicativo deve permitir que o usuário busque pelo título de um filme, liste
 
 ## Requisitos
 - Desenvolvimento utilizando o framework Flutter;
-- O aplicativo deve rodar nas plataformas Android e iOS;
+- O aplicativo deve rodar na plataforma Android;
 
 ## Considerações importantes
 
