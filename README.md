@@ -32,7 +32,7 @@ O aplicativo deve permitir que o usuário busque pelo título de um filme, liste
 - A experiência do usuário do aplicativo é importantíssima! Então capriche nos elementos visuais e organização das informações na tela.
 - Serão avaliados a qualidade do código e capricho na organização, portanto esperamos que realize seu melhor trabalho!
 - Neste repositório você encontrará o arquivo `OMDB.postman_collection.json` contendo uma coleção de request do Postman com exemplos de chamada para a API da OMDb.
-- Você deverá enviar um e-mail para ti@vitta.me com quantos dias precisará para responder o teste. Leve em consideração que quanto maior o prazo solicitado, maior o rigor na avaliação. A pontualidade na entrega também será avaliada;
+- Você deverá enviar um e-mail para thecoders@vitta.me com quantos dias precisará para responder o teste. Leve em consideração que quanto maior o prazo solicitado, maior o rigor na avaliação. A pontualidade na entrega também será avaliada;
 
 ## Diferenciais/Extras
 - Implementação de testes unitários e de widgets;
@@ -59,4 +59,4 @@ Sim, desta forma utilizaremos isso para monitorar o tempo gasto desde o momento 
 
 > Ainda tem dúvidas?
 
-Mande um e-mail para ti@vitta.me e iremos respondê-lo o mais breve possível.
+Mande um e-mail para thecoders@vitta.me e iremos respondê-lo o mais breve possível.
