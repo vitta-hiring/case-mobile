@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "7e9d8f76-c6ce-4fc0-b757-d0e3240501b7",
+		"name": "OMDB",
+		"description": "Exemplos da API do site The Open Movie Database\nhttp://www.omdbapi.com/",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Search movie",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://www.omdbapi.com?apikey=d12b4be8&s=rambo&type=movie",
+					"protocol": "http",
+					"host": [
+						"www",
+						"omdbapi",
+						"com"
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "d12b4be8"
+						},
+						{
+							"key": "s",
+							"value": "rambo"
+						},
+						{
+							"key": "type",
+							"value": "movie"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://www.omdbapi.com?apikey=d12b4be8&i=tt0462499",
+					"protocol": "http",
+					"host": [
+						"www",
+						"omdbapi",
+						"com"
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "d12b4be8"
+						},
+						{
+							"key": "i",
+							"value": "tt0462499"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "e32a9921-1b75-4c5f-b531-1b2c641a2e8e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "676118cb-1c0c-4773-bb91-bb1b64a79b13",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
