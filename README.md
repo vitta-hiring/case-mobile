@@ -44,7 +44,7 @@ O aplicativo deve permitir que o usuário busque pelo título de um filme, liste
 
 - Faça um fork deste repositório na sua conta do Github;
 - Após completar o desafio, crie um pull request nesse repositório comparando a sua branch com a master com o seu nome no título deste;
-- Envie um e-mail para ti@vitta.me notificando que a solução está entregue;
+- Envie um e-mail para thecoders@vitta.me notificando que a solução está entregue;
 Analisaremos sua solução e entraremos em contato via e-mail.
 
 ## FAQ
