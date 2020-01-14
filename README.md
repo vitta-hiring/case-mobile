@@ -1,4 +1,4 @@
-## Sobre a Vitta
+﻿## Sobre a Vitta
 
 A Vitta nasceu com a missão de transformar a saúde do Brasil. Em poucos anos se tornou uma das maiores startups de health tech no mercado e, mesmo com o crescimento, mantemos em nosso DNA a inovação, a experiência, a praticidade e a segurança. 
 Desde então temos trabalhado para construir nossa marca e cultura a fim de desenvolver produtos altamente eficientes, capazes de revolucionar a saúde no nosso país. 
