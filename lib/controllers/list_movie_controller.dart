@@ -6,7 +6,9 @@ import '../models/movies_api.dart';
 import '../repositories/movies_api_repository.dart';
 
 class ListMovieController extends GetxController {
+  //injeção de dependencia para todo app
   IMoviesApiRepository repoSearchMovie = Get.put(MoviesApiRepository());
+  //lista de filmes
   List<Search> searchMovies;
   bool response;
   MovieModelApi movieDetails;

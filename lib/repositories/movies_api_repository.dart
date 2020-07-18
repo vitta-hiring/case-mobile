@@ -7,6 +7,9 @@ import '../models/movies_api.dart';
 
 class MoviesApiRepository implements IMoviesApiRepository {
   @override
+  //Repositorio
+
+  // Busca de filmes filtradas por titulo
   Future<MoviesApi> searchMovies(String titleMovie) async {
     try {
       var res = await http.get(ConstsUrlBase.urlSearchMovie + titleMovie);
@@ -17,6 +20,7 @@ class MoviesApiRepository implements IMoviesApiRepository {
     }
   }
 
+  // Busca de filmes filtradas por ID
   @override
   Future<MovieModelApi> getMovie(String idMovie) async {
     try {
