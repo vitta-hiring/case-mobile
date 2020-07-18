@@ -1,16 +1,21 @@
-# test_app
+Flutter Test App
+=======================
 
-A new Flutter project.
+![Donwload APK Android](https://github.com/maickom88/case-mobile/blob/master/apk_demo/test.apk)
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+#### ❗️ Demo Gif ❗️
 
-A few resources to get you started if this is your first Flutter project:
+![](https://github.com/maickom88/case-mobile/blob/master/demo_gif/Animated%20GIF-downsized_large.gif?raw=true)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+![](https://media.giphy.com/media/h5FCnUOz5S4wfZijvy/giphy.gif)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## ✔️ Real preview of the interface!
+
+![](https://github.com/maickom88/case-mobile/blob/master/screenshots/Screenshot_20200718-115151.jpg?raw=true)
+
+=======================
+
+![](https://github.com/maickom88/case-mobile/blob/master/screenshots/Screenshot_20200718-115158.jpg?raw=true)
+
+=======================
