@@ -8,7 +8,7 @@ Flutter Test App
 
 ![](https://github.com/maickom88/case-mobile/blob/master/demo_gif/Animated%20GIF-downsized_large.gif?raw=true)
 
-
+![](https://media.giphy.com/media/h5FCnUOz5S4wfZijvy/giphy.gif)
 
 ## ✔️ Real preview of the interface!
 
