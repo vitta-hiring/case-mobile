@@ -21,6 +21,8 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  fluttertoast: ^7.0.1+1
+  url_launcher: ^5.5.0
   dio: ^3.0.9
   rxdart: ^0.24.1
   bloc_pattern: ^2.5.1
@@ -48,8 +50,10 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/icons/imdb.png
+    - assets/icons/metacritic.png
+    - assets/icons/rotten_tomatoes.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
