@@ -1,0 +1,64 @@
+name: VittaChallenge
+description: App created for challenge vitta test | Rafael Augusto Alveriano Candido
+
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  get: ^3.4.1
+  dio:
+  json_annotation:
+  loading: ^1.0.2
+  easy_debounce: ^1.0.1
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^0.1.3
+
+dev_dependencies:
+  mockito: ^4.1.1
+  build_runner:
+  json_serializable:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+
+  uses-material-design: true
+  
+  assets:
+     - assets/images/intro.png
+     - assets/json_for_test.json
+
+  fonts:
+    - family: PoppinsThin
+      fonts:
+        - asset: assets/fonts/PoppinsThin.ttf
+
+    - family: PoppinsExtraLight
+      fonts:
+        - asset: assets/fonts/PoppinsExtraLight.ttf
+
+    - family: PoopinsLight
+      fonts:
+        - asset: assets/fonts/PoopinsLight.ttf
+
+    - family: PoopinsRegular
+      fonts:
+        - asset: assets/fonts/PoopinsRegular.ttf
+
+    - family: PoppinsBold
+      fonts:
+        - asset: assets/fonts/PoppinsBold.ttf
+
+    - family: EncodeSansLight
+      fonts:
+        - asset: assets/fonts/EncodeSansLight.ttf
+
+    - family: EncodeSansRegular
+      fonts:
+        - asset: assets/fonts/EncodeSansRegular.ttf        
