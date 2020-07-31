@@ -49,5 +49,15 @@ void main() {
       expect(movieMap['Type'], movie.type);
       expect(movieMap['Poster'], movie.poster);
     });
+
+    test('Should return a MovieModel serialized and deserialized', () {
+      final MovieModel movie = MovieModel(
+          title: title, year: year, imdbID: imdbID, type: type, poster: poster);
+
+      final movieJson = movie.toJson();
+      final anotherMovie = MovieModel.fromJson(movieJson);
+
+      expect(movie, anotherMovie);
+    });
   });
 }

@@ -116,4 +116,19 @@ class MovieDetailsModel {
         "Production": production,
         "Website": website,
       };
+
+  bool operator ==(other) {
+    return (other is MovieDetailsModel &&
+        other.title == title &&
+        other.year == year &&
+        other.imdbId == imdbId &&
+        other.type == type &&
+        other.poster == poster &&
+        other.actors == actors &&
+        other.director == director &&
+        other.writer == writer);
+  }
+
+  @override
+  int get hashCode => super.hashCode;
 }

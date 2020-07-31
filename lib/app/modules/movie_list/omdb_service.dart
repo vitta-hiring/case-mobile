@@ -62,8 +62,6 @@ class OMDBService extends Disposable {
   //dispose will be called automatically
   @override
   void dispose() {
-    print('executando nos ervicoe');
     this._http.dispose();
-    print('terminou noservice');
   }
 }

@@ -37,7 +37,7 @@ void main() {
   group('RatingModel test', () {
     final RatingModel reating =
         RatingModel(source: ratingSource, value: ratingValue);
-    final MovieDetailsModel movie = MovieDetailsModel(
+    final MovieDetailsModel movieDetails = MovieDetailsModel(
         title: title,
         year: year,
         imdbId: imdbId,
@@ -63,20 +63,20 @@ void main() {
         website: website,
         ratings: [reating]);
     test('Should return a RatingModel', () {
-      expect(movie.imdbId, imdbId);
-      expect(movie.title, title);
-      expect(movie.poster, poster);
-      expect(movie.type, type);
+      expect(movieDetails.imdbId, imdbId);
+      expect(movieDetails.title, title);
+      expect(movieDetails.poster, poster);
+      expect(movieDetails.type, type);
     });
 
     test(
         'Should return a JSON MovieDescriptionModel when object MovieDescriptionModel is informed',
         () {
-      Map<String, dynamic> movieMap = movie.toJson();
-      expect(movie.imdbId, movieMap['imdbID']);
-      expect(movie.title, movieMap['Title']);
-      expect(movie.poster, movieMap['Poster']);
-      expect(movie.type, movieMap['Type']);
+      Map<String, dynamic> movieMap = movieDetails.toJson();
+      expect(movieDetails.imdbId, movieMap['imdbID']);
+      expect(movieDetails.title, movieMap['Title']);
+      expect(movieDetails.poster, movieMap['Poster']);
+      expect(movieDetails.type, movieMap['Type']);
     });
 
     test('Should return a MovieDescriptionModel when JSON is informed', () {
@@ -133,6 +133,13 @@ void main() {
           (movieDescription.ratings ?? [])
               .map((rating) => rating.toJson())
               .toList());
+    });
+
+    test('Should return a MovieDetailsModel serialized and deserialized', () {
+      final movieJson = movieDetails.toJson();
+      final anotherMovieDetails = MovieDetailsModel.fromJson(movieJson);
+
+      expect(movieDetails, anotherMovieDetails);
     });
   });
 }
