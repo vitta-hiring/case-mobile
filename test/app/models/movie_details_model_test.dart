@@ -5,7 +5,7 @@ import 'package:vitta_test/app/modules/movie_list/omdb_service.dart';
 
 void main() {
   final title = 'Rambo';
-  final year = 2008;
+  final year = '2008';
   final imdbId = 'tt0462499';
   final type = OMDB_MOVIE_SEARCH_TYPE;
   final poster =

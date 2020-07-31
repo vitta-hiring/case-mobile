@@ -1,6 +1,6 @@
 class MovieModel {
   final String title;
-  final int year;
+  final String year;
   final String imdbID;
   final String type;
   final String poster;
@@ -15,7 +15,7 @@ class MovieModel {
 
   factory MovieModel.fromJson(Map<String, dynamic> json) => MovieModel(
         title: json['Title'],
-        year: int.parse(json['Year']),
+        year: json['Year'],
         imdbID: json['imdbID'],
         type: json['Type'],
         poster: json['Poster'],
@@ -23,7 +23,7 @@ class MovieModel {
 
   Map<String, dynamic> toJson() => {
         'Title': this.title,
-        'Year': this.year.toString(),
+        'Year': this.year,
         'imdbID': this.imdbID,
         'Type': this.type,
         'Poster': this.poster,

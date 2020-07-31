@@ -16,7 +16,7 @@ void main() {
 
   final MovieModel ramboMovie = MovieModel(
     title: 'Rambo',
-    year: 2008,
+    year: '2008',
     imdbID: 'tt0462499',
     type: OMDB_MOVIE_SEARCH_TYPE,
     poster:
@@ -24,7 +24,7 @@ void main() {
   );
   final MovieDetailsModel ramboMovieDetails = MovieDetailsModel(
     title: 'Rambo',
-    year: 2008,
+    year: '2008',
     imdbId: 'tt0462499',
     type: OMDB_MOVIE_SEARCH_TYPE,
     poster:

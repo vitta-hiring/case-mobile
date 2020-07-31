@@ -11,7 +11,7 @@ void main() {
   OMDBServiceMock serviceMock;
   final MovieDetailsModel ramboFullMovie = MovieDetailsModel(
     title: 'Rambo',
-    year: 2008,
+    year: '2008',
     imdbId: 'tt0462499',
     type: OMDB_MOVIE_SEARCH_TYPE,
     poster:
@@ -38,7 +38,7 @@ void main() {
   );
   final MovieModel ramboMovie = MovieModel(
     title: 'Rambo',
-    year: 2008,
+    year: '2008',
     imdbID: 'tt0462499',
     type: OMDB_MOVIE_SEARCH_TYPE,
     poster:
@@ -46,7 +46,7 @@ void main() {
   );
   final MovieModel ramboFirstBloodPartIIMovie = MovieModel(
     title: 'Rambo: First Blood Part II',
-    year: 1985,
+    year: '1985',
     imdbID: 'tt0089880',
     type: OMDB_MOVIE_SEARCH_TYPE,
     poster:
@@ -54,7 +54,7 @@ void main() {
   );
   final MovieModel ramboIIIMovie = MovieModel(
     title: 'Rambo III',
-    year: 1988,
+    year: '1988',
     imdbID: 'tt0095956',
     type: OMDB_MOVIE_SEARCH_TYPE,
     poster:
@@ -62,7 +62,7 @@ void main() {
   );
   final MovieModel ramboSerie = MovieModel(
     title: 'Rambo',
-    year: 1986,
+    year: '1986',
     imdbID: 'tt0222619',
     type: OMDB_SERIES_SEARCH_TYPE,
     poster:

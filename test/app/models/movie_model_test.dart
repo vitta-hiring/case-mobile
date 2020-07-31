@@ -4,7 +4,7 @@ import 'package:vitta_test/app/modules/movie_list/omdb_service.dart';
 
 void main() {
   final title = 'Rambo';
-  final year = 2008;
+  final year = '2008';
   final imdbID = 'tt0462499';
   final type = OMDB_MOVIE_SEARCH_TYPE;
   final poster =
@@ -28,7 +28,7 @@ void main() {
           title: title, year: year, imdbID: imdbID, type: type, poster: poster);
       Map movieMap = movie.toJson();
       expect(movie.title, movieMap['Title']);
-      expect(movie.year, int.parse(movieMap['Year']));
+      expect(movie.year, movieMap['Year']);
       expect(movie.imdbID, movieMap['imdbID']);
       expect(movie.type, movieMap['Type']);
       expect(movie.poster, movieMap['Poster']);
@@ -37,14 +37,14 @@ void main() {
     test('Should return a MovieModel when JSON is informed', () {
       Map<String, dynamic> movieMap = {
         'Title': title,
-        'Year': year.toString(),
+        'Year': year,
         'imdbID': imdbID,
         'Type': type,
         'Poster': poster,
       };
       MovieModel movie = MovieModel.fromJson(movieMap);
       expect(movieMap['Title'], movie.title);
-      expect(movieMap['Year'], movie.year.toString());
+      expect(movieMap['Year'], movie.year);
       expect(movieMap['imdbID'], movie.imdbID);
       expect(movieMap['Type'], movie.type);
       expect(movieMap['Poster'], movie.poster);

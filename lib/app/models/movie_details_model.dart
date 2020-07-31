@@ -36,7 +36,7 @@ class MovieDetailsModel {
   });
 
   String title;
-  int year;
+  String year;
   String rated;
   String released;
   String runtime;
@@ -63,7 +63,7 @@ class MovieDetailsModel {
   factory MovieDetailsModel.fromJson(Map<String, dynamic> json) =>
       MovieDetailsModel(
         title: json["Title"],
-        year: json["Year"] != null ? int.parse(json["Year"]) : null,
+        year: json["Year"],
         rated: json["Rated"],
         released: json["Released"],
         runtime: json["Runtime"],
@@ -91,7 +91,7 @@ class MovieDetailsModel {
 
   Map<String, dynamic> toJson() => {
         "Title": title,
-        "Year": year.toString(),
+        "Year": year,
         "Rated": rated,
         "Released": released,
         "Runtime": runtime,
