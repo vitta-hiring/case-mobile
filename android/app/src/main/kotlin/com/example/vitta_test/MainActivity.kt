@@ -1,4 +1,4 @@
-package com.example.vitta_test
+package br.com.muriloao.vitta_test
 
 import io.flutter.embedding.android.FlutterActivity
 
