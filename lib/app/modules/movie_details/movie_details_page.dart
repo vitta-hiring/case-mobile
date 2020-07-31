@@ -83,92 +83,7 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                   sliver: SliverVisibility(
                     visible: snap.hasData,
                     sliver: SliverList(
-                      delegate: SliverChildListDelegate([
-                        Padding(
-                          padding: padding,
-                          child: ListTile(
-                            title: Text('${movie.title}'),
-                            subtitle: Text('${movie.year}'),
-                            contentPadding: EdgeInsets.zero,
-                            trailing: RaisedButton(
-                                color: Colors.red[400],
-                                child: Text(
-                                  'TRAILER',
-                                ),
-                                onPressed: () =>
-                                    this._launchYoutube(movie.title)),
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Text(
-                              movie.genre.toString().replaceAll(', ', ' | '),
-                              style: TextStyle(fontSize: 10),
-                            ),
-                            Text(
-                              movie.runtime,
-                              style: TextStyle(fontSize: 10),
-                            ),
-                          ],
-                        ),
-                        Padding(
-                          padding: padding,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              Text(
-                                movie.language,
-                                style: TextStyle(fontSize: 10),
-                              ),
-                              Text(
-                                movie.country,
-                                style: TextStyle(fontSize: 10),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: padding,
-                          child: Text(
-                            '${movie.plot}',
-                            style: TextStyle(fontSize: 16),
-                          ),
-                        ),
-                        this._buildInfo('Actors', movie.actors),
-                        Wrap(
-                          alignment: WrapAlignment.spaceBetween,
-                          children: <Widget>[
-                            this._buildInfo('Production', movie.production),
-                            this._buildInfo('Director', movie.director),
-                            this._buildInfo('Released', movie.released),
-                          ],
-                        ),
-                        this._buildInfo('Writers', movie.writer),
-                        Wrap(
-                          alignment: WrapAlignment.spaceBetween,
-                          children: (movie.ratings ?? [])
-                              .map(
-                                  (rating) => this._buildRatingWithIcon(rating))
-                              .toList(),
-                        ),
-                        Wrap(
-                          alignment: WrapAlignment.spaceEvenly,
-                          children: <Widget>[
-                            this._buildInfo('Awards', movie.awards),
-                            this._buildInfo('BoxOffice', movie.boxOffice),
-                          ],
-                        ),
-                        Visibility(
-                          visible: movie.website != 'N/A',
-                          child: InkWell(
-                            onTap: () => _launchWebsite(movie.website),
-                            child: Center(
-                                child: this._buildInfo(
-                                    'Visit website', movie.website)),
-                          ),
-                        ),
-                      ]),
+                      delegate: _buildMovieDetailsBody(movie),
                     ),
                   ),
                 ),
@@ -178,6 +93,91 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
         ),
       ),
     );
+  }
+
+  SliverChildListDelegate _buildMovieDetailsBody(MovieDetailsModel movie) {
+    return SliverChildListDelegate([
+      Padding(
+        padding: padding,
+        child: ListTile(
+          title: Text('${movie.title}'),
+          subtitle: Text('${movie.year}'),
+          contentPadding: EdgeInsets.zero,
+          trailing: RaisedButton(
+              color: Colors.red[400],
+              child: Text(
+                'TRAILER',
+              ),
+              onPressed: () => this._launchYoutube(movie.title)),
+        ),
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Text(
+            movie.genre.toString().replaceAll(', ', ' | '),
+            style: TextStyle(fontSize: 10),
+          ),
+          Text(
+            movie.runtime,
+            style: TextStyle(fontSize: 10),
+          ),
+        ],
+      ),
+      Padding(
+        padding: padding,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Text(
+              movie.language,
+              style: TextStyle(fontSize: 10),
+            ),
+            Text(
+              movie.country,
+              style: TextStyle(fontSize: 10),
+            ),
+          ],
+        ),
+      ),
+      Padding(
+        padding: padding,
+        child: Text(
+          '${movie.plot}',
+          style: TextStyle(fontSize: 16),
+        ),
+      ),
+      this._buildInfo('Actors', movie.actors),
+      Wrap(
+        alignment: WrapAlignment.spaceBetween,
+        children: <Widget>[
+          this._buildInfo('Production', movie.production),
+          this._buildInfo('Director', movie.director),
+          this._buildInfo('Released', movie.released),
+        ],
+      ),
+      this._buildInfo('Writers', movie.writer),
+      Wrap(
+        alignment: WrapAlignment.spaceBetween,
+        children: (movie.ratings ?? [])
+            .map((rating) => this._buildRatingWithIcon(rating))
+            .toList(),
+      ),
+      Wrap(
+        alignment: WrapAlignment.spaceEvenly,
+        children: <Widget>[
+          this._buildInfo('Awards', movie.awards),
+          this._buildInfo('BoxOffice', movie.boxOffice),
+        ],
+      ),
+      Visibility(
+        visible: movie.website != 'N/A',
+        child: InkWell(
+          onTap: () => _launchWebsite(movie.website),
+          child: Center(child: this._buildInfo('Visit website', movie.website)),
+        ),
+      ),
+    ]);
   }
 
   Row _buildRatingWithIcon(RatingModel rating) => Row(
