@@ -1,5 +1,5 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
-import 'package:vitta_test/app/models/movie_description_model.dart';
+import 'package:vitta_test/app/models/movie_details_model.dart';
 import 'package:vitta_test/app/modules/movie_list/movie_list_module.dart';
 import 'package:vitta_test/app/models/movie_model.dart';
 import 'package:vitta_test/app/modules/movie_list/omdb_service.dart';
