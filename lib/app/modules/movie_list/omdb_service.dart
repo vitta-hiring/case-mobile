@@ -14,13 +14,13 @@ const OMDB_EPISODE_SEARCH_TYPE = 'episode';
 class OMDBService extends Disposable {
   final HttpHelper _http = HttpHelper(OMDB_API_URL, OMDB_API_TIMEOUT);
 
-  Future<List<MovieModel>> _getMidiaByTitleAndType(
+  Future<List<MovieModel>> getMidiaByTitleAndType(
       String title, String searchtype) async {
     List<MovieModel> movies = [];
     Response response = await this._http.get(queryParameters: {
       's': title,
       'apikey': OMDB_API_KEY,
-      'type': searchtype,
+      'type': searchtype ?? OMDB_MOVIE_SEARCH_TYPE,
     });
     if (response.statusCode == HttpStatus.ok) {
       ((response.data['Search'] ?? []) as List)
@@ -33,15 +33,15 @@ class OMDBService extends Disposable {
   }
 
   Future<List<MovieModel>> getMoviesByTitle(String title) async {
-    return this._getMidiaByTitleAndType(title, OMDB_MOVIE_SEARCH_TYPE);
+    return this.getMidiaByTitleAndType(title, OMDB_MOVIE_SEARCH_TYPE);
   }
 
   Future<List<MovieModel>> getSeriesByTitle(String title) async {
-    return this._getMidiaByTitleAndType(title, OMDB_SERIES_SEARCH_TYPE);
+    return this.getMidiaByTitleAndType(title, OMDB_SERIES_SEARCH_TYPE);
   }
 
   Future<List<MovieModel>> getEpisodesByTitle(String title) async {
-    return this._getMidiaByTitleAndType(title, OMDB_EPISODE_SEARCH_TYPE);
+    return this.getMidiaByTitleAndType(title, OMDB_EPISODE_SEARCH_TYPE);
   }
 
   Future<MovieDetailsModel> getMidiaById(String midiaId) async {

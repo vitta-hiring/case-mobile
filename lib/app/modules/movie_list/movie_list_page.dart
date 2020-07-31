@@ -4,9 +4,11 @@ import 'package:vitta_test/app/modules/movie_details/movie_details_page.dart';
 import 'package:vitta_test/app/modules/movie_list/movie_list_bloc.dart';
 import 'package:vitta_test/app/modules/movie_list/movie_list_module.dart';
 
-const title = "FILMES";
-
 class MovieListPage extends StatefulWidget {
+  final String type;
+
+  const MovieListPage({this.type});
+
   @override
   _MovieListPageState createState() => _MovieListPageState();
 }
@@ -16,21 +18,19 @@ class _MovieListPageState extends State<MovieListPage> {
       MovieListModule.to.getBloc<MovieListBloc>();
   Future<List<MovieModel>> _movies;
 
-  final TextEditingController _searchController =
-      TextEditingController(text: 'love');
+  final TextEditingController _searchController = TextEditingController();
   final FocusNode _searchFocus = FocusNode();
 
   @override
   void initState() {
-    this._movies = this._movieListBloc.getMovies(this._searchController.text);
+    this._movies = this._movieListBloc.getMovies(this.widget.type);
     super.initState();
   }
 
   Widget _buildListOfMovies(List<MovieModel> movies) {
     if (movies.isEmpty)
       return Center(
-        child:
-            Text('Não encontramos nada com \'${this._searchController.text}\''),
+        child: Text('Não encontramos nada, tente outra pesquisa'),
       );
     return GridView.builder(
       itemCount: movies.length,
@@ -111,7 +111,7 @@ class _MovieListPageState extends State<MovieListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(this.widget.type.toUpperCase()),
         centerTitle: true,
         elevation: 0,
       ),
