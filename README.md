@@ -1,3 +1,5 @@
+![Test, Build and Release apk](https://github.com/muriloao/case-mobile/workflows/Test,%20Build%20and%20Release%20apk/badge.svg)
+
 ## Sobre a Vitta
 
 A Vitta nasceu com a missão de transformar a saúde do Brasil. Em poucos anos se tornou uma das maiores startups de health tech no mercado e, mesmo com o crescimento, mantemos em nosso DNA a inovação, a experiência, a praticidade e a segurança. 
