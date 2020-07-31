@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:dio/dio.dart';
 import 'package:vitta_test/app/helpers/http_helper.dart';
-import 'package:vitta_test/app/modules/movie_list/full_movie_model.dart';
-import 'package:vitta_test/app/modules/movie_list/movie_model.dart';
+import 'package:vitta_test/app/models/movie_details_model.dart';
+import 'package:vitta_test/app/models/movie_model.dart';
 import 'package:vitta_test/app/utils/settings.dart';
 
 const OMDB_MOVIE_SEARCH_TYPE = 'movie';
@@ -44,14 +44,14 @@ class OMDBService extends Disposable {
     return this._getMidiaByTitleAndType(title, OMDB_EPISODE_SEARCH_TYPE);
   }
 
-  Future<FullMovieModel> getMidiaById(String midiaId) async {
+  Future<MovieDetailsModel> getMidiaById(String midiaId) async {
     Response response = await this._http.get(queryParameters: {
       'i': midiaId,
       'apikey': OMDB_API_KEY,
     });
     if (response.statusCode == HttpStatus.ok &&
         response.data['Response'] == "True") {
-      return FullMovieModel.fromJson(response.data);
+      return MovieDetailsModel.fromJson(response.data);
     } else if (response.statusCode == HttpStatus.unauthorized) {
       print('Invalid API key');
       throw Exception('Invalid API key');

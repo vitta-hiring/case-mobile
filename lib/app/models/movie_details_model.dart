@@ -2,13 +2,13 @@ import 'dart:convert';
 
 import 'package:vitta_test/app/models/rating_model.dart';
 
-MovieDescriptionModel fullMovieModelFromJson(String str) =>
-    MovieDescriptionModel.fromJson(json.decode(str));
-String fullMovieModelToJson(MovieDescriptionModel data) =>
+MovieDetailsModel fullMovieModelFromJson(String str) =>
+    MovieDetailsModel.fromJson(json.decode(str));
+String fullMovieModelToJson(MovieDetailsModel data) =>
     json.encode(data.toJson());
 
-class MovieDescriptionModel {
-  MovieDescriptionModel({
+class MovieDetailsModel {
+  MovieDetailsModel({
     this.title,
     this.year,
     this.rated,
@@ -60,8 +60,8 @@ class MovieDescriptionModel {
   String production;
   String website;
 
-  factory MovieDescriptionModel.fromJson(Map<String, dynamic> json) =>
-      MovieDescriptionModel(
+  factory MovieDetailsModel.fromJson(Map<String, dynamic> json) =>
+      MovieDetailsModel(
         title: json["Title"],
         year: json["Year"] != null ? int.parse(json["Year"]) : null,
         rated: json["Rated"],

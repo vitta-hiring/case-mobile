@@ -1,13 +1,13 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:vitta_test/app/modules/movie_list/full_movie_model.dart';
+import 'package:vitta_test/app/models/movie_details_model.dart';
 
 import 'package:vitta_test/app/modules/movie_list/omdb_service.dart';
-import 'package:vitta_test/app/modules/movie_list/movie_model.dart';
+import 'package:vitta_test/app/models/movie_model.dart';
 
 class OMDBServiceMock extends Mock implements OMDBService {}
 
-final FullMovieModel ramboFullMovie = FullMovieModel(
+final MovieDetailsModel ramboFullMovie = MovieDetailsModel(
   title: 'Rambo',
   year: 2008,
   imdbId: 'tt0462499',
@@ -81,8 +81,8 @@ void main() {
       when(serviceMock.getMidiaById(search))
           .thenAnswer((_) async => ramboFullMovie);
 
-      FullMovieModel fullMovie = await serviceMock.getMidiaById(search);
-      expect(fullMovie, isA<FullMovieModel>());
+      MovieDetailsModel fullMovie = await serviceMock.getMidiaById(search);
+      expect(fullMovie, isA<MovieDetailsModel>());
       expect(fullMovie.imdbId, ramboFullMovie.imdbId);
       expect(fullMovie.title, ramboFullMovie.title);
     });
@@ -92,7 +92,7 @@ void main() {
       final String search = 'aaaaa';
       when(serviceMock.getMidiaById(search)).thenAnswer((_) async => null);
 
-      FullMovieModel fullMovie = await serviceMock.getMidiaById(search);
+      MovieDetailsModel fullMovie = await serviceMock.getMidiaById(search);
       expect(fullMovie, null);
     });
 

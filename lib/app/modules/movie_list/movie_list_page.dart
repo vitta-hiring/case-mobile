@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vitta_test/app/models/movie_model.dart';
-import 'package:vitta_test/app/modules/movie_details/movie_details_module.dart';
+import 'package:vitta_test/app/modules/movie_details/movie_details_page.dart';
 import 'package:vitta_test/app/modules/movie_list/movie_list_bloc.dart';
 import 'package:vitta_test/app/modules/movie_list/movie_list_module.dart';
 
@@ -17,12 +17,12 @@ class _MovieListPageState extends State<MovieListPage> {
   Future<List<MovieModel>> _movies;
 
   final TextEditingController _searchController =
-      TextEditingController(text: "");
+      TextEditingController(text: 'love');
   final FocusNode _searchFocus = FocusNode();
 
   @override
   void initState() {
-    this._movies = this._movieListBloc.getMovies('rambo');
+    this._movies = this._movieListBloc.getMovies(this._searchController.text);
     super.initState();
   }
 
@@ -70,8 +70,10 @@ class _MovieListPageState extends State<MovieListPage> {
 
   _searchMovie() {
     if (this._searchController.text.isNotEmpty)
-      this._movies = this._movieListBloc.getMovies(this._searchController.text);
-    setState(() {});
+      setState(() {
+        this._movies =
+            this._movieListBloc.getMovies(this._searchController.text);
+      });
   }
 
   Widget _getSearchTextInput() => Container(
@@ -85,25 +87,12 @@ class _MovieListPageState extends State<MovieListPage> {
           cursorColor: Colors.white,
           decoration: InputDecoration.collapsed(
             hintText: 'Pesquisar...',
-
-            // contentPadding: EdgeInsets.symmetric(vertical: 5),
-            // contentPadding: EdgeInsets.zero,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
             ),
             focusColor: Colors.white,
             fillColor: Colors.white,
             hoverColor: Colors.white,
-            // focusedBorder: OutlineInputBorder(
-            //   borderRadius: BorderRadius.circular(15),
-            // ),
-            // suffix: IconButton(
-            //   icon: Icon(
-            //     Icons.search,
-            //     size: 20,
-            //   ),
-            //   onPressed: _searchMovie,
-            // ),
           ),
         ),
       );
@@ -112,7 +101,7 @@ class _MovieListPageState extends State<MovieListPage> {
     return Navigator.push(
       context,
       MaterialPageRoute(
-          builder: (context) => MovieDetailsModule(
+          builder: (context) => MovieDetailsPage(
               movie, this._movieListBloc.getMoviesByImdbID(movie.imdbID)),
           fullscreenDialog: true),
     );
@@ -134,10 +123,10 @@ class _MovieListPageState extends State<MovieListPage> {
                 initialData: [],
                 future: this._movies,
                 builder: (_, AsyncSnapshot<List<MovieModel>> snap) {
-                  if (snap.hasData) {
-                    return this._buildListOfMovies(snap.data);
-                  } else if (snap.connectionState == ConnectionState.waiting) {
+                  if (snap.connectionState == ConnectionState.waiting) {
                     return Center(child: CircularProgressIndicator());
+                  } else if (snap.hasData) {
+                    return this._buildListOfMovies(snap.data);
                   }
                   return Container();
                 }),

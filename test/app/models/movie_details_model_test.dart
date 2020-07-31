@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:vitta_test/app/models/movie_description_model.dart';
+import 'package:vitta_test/app/models/movie_details_model.dart';
 import 'package:vitta_test/app/models/rating_model.dart';
 import 'package:vitta_test/app/modules/movie_list/omdb_service.dart';
 
@@ -37,7 +37,7 @@ void main() {
   group('RatingModel test', () {
     final RatingModel reating =
         RatingModel(source: ratingSource, value: ratingValue);
-    final MovieDescriptionModel movie = MovieDescriptionModel(
+    final MovieDetailsModel movie = MovieDetailsModel(
         title: title,
         year: year,
         imdbId: imdbId,
@@ -105,8 +105,7 @@ void main() {
         'Production': production,
         'Website': website,
       };
-      MovieDescriptionModel movieDescription =
-          MovieDescriptionModel.fromJson(movieMap);
+      MovieDetailsModel movieDescription = MovieDetailsModel.fromJson(movieMap);
       expect(movieMap['imdbID'], movieDescription.imdbId);
       expect(movieMap['Title'], movieDescription.title);
       expect(movieMap['Poster'], movieDescription.poster);
