@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vitta_test/app/modules/movie_list/movie_list_module.dart';
+import 'package:vitta_test/app/modules/home/home_module.dart';
 import 'package:vitta_test/app/utils/settings.dart';
 
 class AppWidget extends StatelessWidget {
@@ -10,7 +10,7 @@ class AppWidget extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.dark,
       ),
-      home: MovieListModule(),
+      home: HomeModule(),
     );
   }
 }
