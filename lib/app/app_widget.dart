@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:vitta_test/app/modules/home/home_module.dart';
+import 'package:vitta_test/app/modules/movie_list/movie_list_module.dart';
+import 'package:vitta_test/app/utils/settings.dart';
 
 class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Vitta Test',
+      title: APP_NAME,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        brightness: Brightness.dark,
       ),
-      home: HomeModule(),
+      home: MovieListModule(),
     );
   }
 }
