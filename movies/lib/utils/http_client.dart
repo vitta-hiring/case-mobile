@@ -39,7 +39,7 @@ class HttpClient {
   }
 
   Future<TResponse> get<TResponse extends ISeriazableResponse<TResponse>>({
-    String uri,
+    String uri = '/',
     Map<String, dynamic> query,
     Map<String, String> uriParams,
     ItemCreator<TResponse> creator,
@@ -51,10 +51,10 @@ class HttpClient {
         this._baseUrl + uri + queryParams,
         headers: this._headers,
       );
-
       responseInstance = responseInstance.fromJson(jsonDecode(response.body));
       return responseInstance;
     } catch (error) {
+      print(error);
       return null;
     }
   }

@@ -11,10 +11,12 @@ SearchResult _$SearchResultFromJson(Map<String, dynamic> json) {
     ..result = (json['Search'] as List)
         ?.map((e) =>
             e == null ? null : MovieSummary.fromJson(e as Map<String, dynamic>))
-        ?.toList();
+        ?.toList()
+    ..success = SearchResult.responseSuccessFromJson(json['Response']);
 }
 
 Map<String, dynamic> _$SearchResultToJson(SearchResult instance) =>
     <String, dynamic>{
       'Search': instance.result,
+      'Response': instance.success,
     };

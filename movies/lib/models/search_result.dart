@@ -6,11 +6,16 @@ part 'search_result.g.dart';
 
 @JsonSerializable()
 class SearchResult extends ISeriazableResponse<SearchResult> {
-  
   @JsonKey(name: 'Search')
   List<MovieSummary> result;
-  
+  @JsonKey(name: 'Response', fromJson: responseSuccessFromJson)
+  bool success;
+
   SearchResult();
+
+  static bool responseSuccessFromJson(value) {
+    return value == 'True';
+  }
 
   @override
   SearchResult fromJson(Map<String, dynamic> json) =>
