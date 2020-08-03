@@ -1,0 +1,17 @@
+include: package:effective_dart/analysis_options.yaml
+
+linter:
+    rules:
+        lines_longer_than_80_chars: false
+        public_member_api_docs: false
+        prefer_collection_literals: false
+        omit_local_variable_types: false
+        use_setters_to_change_properties: false
+        prefer_final_fields: false
+        type_annotate_public_apis: false
+        avoid_function_literals_in_foreach_calls: false
+        constant_identifier_names: false
+        avoid_equals_and_hash_code_on_mutable_classes: false
+        avoid_positional_boolean_parameters: false
+        prefer_mixin: false
+        unnecessary_brace_in_string_interps: false
