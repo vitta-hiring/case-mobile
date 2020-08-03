@@ -1,3 +1,4 @@
+import 'package:movies/models/movie.dart';
 import 'package:movies/models/search_result.dart';
 import 'package:movies/utils/http_client.dart';
 
@@ -17,6 +18,22 @@ class MoviesRepository {
         query: query,
       );
       return movies;
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  Future<Movie> getMovieById(String id) async {
+    try {
+      Map<String, String> query = {
+        'apikey': _apiKey,
+        'i': id,
+      };
+      Movie movie = await _httpClient.get<Movie>(
+        creator: () => Movie(),
+        query: query,
+      );
+      return movie;
     } catch (e) {
       throw e;
     }

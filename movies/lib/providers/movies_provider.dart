@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:movies/models/movie.dart';
 import 'package:movies/models/movie_summary.dart';
 import 'package:movies/models/search_params.dart';
 import 'package:movies/repositories/movies_repository.dart';
@@ -19,6 +20,12 @@ class MoviesProvider with ChangeNotifier {
     this._foundMovies = value;
   }
 
+  Movie _selectedMovie = Movie();
+  Movie get selectedMovie => this._selectedMovie;
+  set selectedMovie(Movie value) {
+    this._selectedMovie = value;
+  }
+
   SearchParams _searchParams = SearchParams();
 
   updateTitle(String value) {
@@ -29,6 +36,21 @@ class MoviesProvider with ChangeNotifier {
     homePageState = HomePageState.Loading;
     _repository.getMovies(query: _searchParams.toQuery).then((value) {
       foundMovies = value.result;
+      if (value.success) {
+        homePageState = HomePageState.Result;
+      } else {
+        homePageState = HomePageState.Error;
+      }
+    }).catchError((error) {
+      homePageState = HomePageState.Error;
+    });
+  }
+
+  findMovieById(String id) {
+    homePageState = HomePageState.Loading;
+    _repository.getMovieById(id).then((value) {
+      selectedMovie = value;
+      print(value.toJson());
       if (value.success) {
         homePageState = HomePageState.Result;
       } else {

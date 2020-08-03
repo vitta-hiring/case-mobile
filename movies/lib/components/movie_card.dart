@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:movies/components/default_image.dart';
 import 'package:movies/models/movie_summary.dart';
+import 'package:movies/pages/movie_details_page.dart';
+import 'package:movies/providers/movies_provider.dart';
+import 'package:provider/provider.dart';
 
 class MovieCard extends StatelessWidget {
   const MovieCard({
@@ -8,6 +11,17 @@ class MovieCard extends StatelessWidget {
     Key key,
   }) : super(key: key);
   final MovieSummary movie;
+
+  seeMovieDetails(BuildContext context, String id) async {
+    MoviesProvider provider =
+        Provider.of<MoviesProvider>(context, listen: false);
+
+    await provider.findMovieById(id);
+    Navigator.of(context).pushNamed(
+      MovieDetailsPage.routeName,
+      arguments: provider.selectedMovie,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,19 +78,21 @@ class MovieCard extends StatelessWidget {
                     ),
                   ],
                 ),
-                Container(
-                  width: containerWidth - 125,
-                  height: 40,
-                  child: RaisedButton(
-                    onPressed: () => null,
-                    child: Text(
-                      'VER MAIS',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
+                Consumer<MoviesProvider>(
+                  builder: (context, provider, _) => Container(
+                    width: containerWidth - 125,
+                    height: 40,
+                    child: RaisedButton(
+                      onPressed: () => seeMovieDetails(context, movie.imdbId),
+                      child: Text(
+                        'VER MAIS',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                        ),
                       ),
+                      color: Colors.green,
                     ),
-                    color: Colors.green,
                   ),
                 )
               ],
