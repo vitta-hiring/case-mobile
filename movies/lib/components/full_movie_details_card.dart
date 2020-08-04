@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies/components/additional_movie_info.dart';
 import 'package:movies/components/movie_plot_info.dart';
 import 'package:movies/components/movie_poster.dart';
 import 'package:movies/components/movie_ratings_info.dart';
@@ -17,28 +18,32 @@ class FullMovieDetailsCard extends StatelessWidget {
     return Container(
       width: containerWidth,
       margin: EdgeInsets.symmetric(vertical: 8),
-      padding: EdgeInsets.symmetric(vertical: 6, horizontal: 12),
+      padding: EdgeInsets.fromLTRB(12, 12, 12, 30),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(
           Radius.circular(12),
         ),
         color: Colors.white,
       ),
-      child: Column(
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              MoviePoster(posterUrl: movie.posterUrl),
-              Container(
-                width: containerWidth - 125,
-                height: 150,
-                padding: EdgeInsets.symmetric(horizontal: 12),
-                child: MovieRatingsInfo(movie: movie),
-              ),
-            ],
-          ),
-          MoviePlotInfo(plot: movie.plot)
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                MoviePoster(posterUrl: movie.posterUrl),
+                Container(
+                  width: containerWidth - 125,
+                  height: 150,
+                  padding: EdgeInsets.symmetric(horizontal: 12),
+                  child: MovieRatingsInfo(movie: movie),
+                ),
+              ],
+            ),
+            MoviePlotInfo(plot: movie.plot),
+            AdditionalMovieInfo(movie: movie),
+          ],
+        ),
       ),
     );
   }
