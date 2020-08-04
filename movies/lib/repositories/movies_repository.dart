@@ -28,6 +28,7 @@ class MoviesRepository {
       Map<String, String> query = {
         'apikey': _apiKey,
         'i': id,
+        'plot': 'full',
       };
       Movie movie = await _httpClient.get<Movie>(
         creator: () => Movie(),

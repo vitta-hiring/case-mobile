@@ -41,6 +41,8 @@ class _SearchFormState extends State<SearchForm> {
             onChanged: provider.updateTitle,
             controller: titleController,
             focusNode: titleFocusNode,
+            onSubmitted: (_) => provider.searchMovies(),
+            textInputAction: TextInputAction.search,
           ),
         ],
       ),

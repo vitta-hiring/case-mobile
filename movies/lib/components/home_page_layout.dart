@@ -36,7 +36,7 @@ class HomePageLayout extends StatelessWidget {
           DraggableScrollableSheet(
             initialChildSize: 0.25,
             minChildSize: 0.25,
-            maxChildSize: 0.6,
+            maxChildSize: 0.25,
             builder: (context, scrollController) {
               return Stack(
                 overflow: Overflow.visible,
