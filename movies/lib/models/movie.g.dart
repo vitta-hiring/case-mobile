@@ -24,7 +24,7 @@ Movie _$MovieFromJson(Map<String, dynamic> json) {
     ..dvdReleasedAt = json['DVD'] as String
     ..boxOffice = json['BoxOffice'] as String
     ..producedBy = json['Production'] as String
-    ..ragings = (json['Ratings'] as List)
+    ..ratings = (json['Ratings'] as List)
         ?.map((e) =>
             e == null ? null : MovieRating.fromJson(e as Map<String, dynamic>))
         ?.toList()
@@ -52,7 +52,7 @@ Map<String, dynamic> _$MovieToJson(Movie instance) => <String, dynamic>{
       'DVD': instance.dvdReleasedAt,
       'BoxOffice': instance.boxOffice,
       'Production': instance.producedBy,
-      'Ratings': instance.ragings,
+      'Ratings': instance.ratings,
       'Website': instance.website,
       'imdbID': instance.imdbId,
       'Type': instance.type,

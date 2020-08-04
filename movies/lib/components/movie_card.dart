@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies/components/default_image.dart';
+import 'package:movies/components/movie_poster.dart';
 import 'package:movies/models/movie_summary.dart';
 import 'package:movies/pages/movie_details_page.dart';
 import 'package:movies/providers/movies_provider.dart';
@@ -15,12 +16,8 @@ class MovieCard extends StatelessWidget {
   seeMovieDetails(BuildContext context, String id) async {
     MoviesProvider provider =
         Provider.of<MoviesProvider>(context, listen: false);
-
-    await provider.findMovieById(id);
-    Navigator.of(context).pushNamed(
-      MovieDetailsPage.routeName,
-      arguments: provider.selectedMovie,
-    );
+    provider.findMovieById(id);
+    Navigator.of(context).pushNamed(MovieDetailsPage.routeName);
   }
 
   @override
@@ -39,14 +36,7 @@ class MovieCard extends StatelessWidget {
       ),
       child: Row(
         children: <Widget>[
-          movie.posterUrl == "N/A"
-              ? DefaultImage()
-              : Image.network(
-                  movie.posterUrl,
-                  height: 150,
-                  width: 100,
-                  fit: BoxFit.fitHeight,
-                ),
+          MoviePoster(posterUrl: movie.posterUrl),
           Container(
             width: containerWidth - 125,
             padding: EdgeInsets.symmetric(horizontal: 12, vertical: 25),

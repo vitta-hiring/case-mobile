@@ -39,7 +39,7 @@ class Movie extends ISeriazableResponse<Movie> {
   @JsonKey(name: 'Production')
   String producedBy;
   @JsonKey(name: 'Ratings')
-  List<MovieRating> ragings;
+  List<MovieRating> ratings;
   @JsonKey(name: 'Website')
   String website;
   @JsonKey(name: 'imdbID')

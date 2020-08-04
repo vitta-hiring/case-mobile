@@ -14,6 +14,14 @@ class MoviesProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  MovieDetailsPageState _movieDetailsPageState = MovieDetailsPageState.Loading;
+  MovieDetailsPageState get movieDetailsPageState =>
+      this._movieDetailsPageState;
+  set movieDetailsPageState(MovieDetailsPageState value) {
+    this._movieDetailsPageState = value;
+    notifyListeners();
+  }
+
   List<MovieSummary> _foundMovies = List<MovieSummary>();
   List<MovieSummary> get foundMovies => this._foundMovies;
   set foundMovies(List<MovieSummary> value) {
@@ -46,19 +54,20 @@ class MoviesProvider with ChangeNotifier {
     });
   }
 
-  findMovieById(String id) {
-    homePageState = HomePageState.Loading;
-    _repository.getMovieById(id).then((value) {
-      selectedMovie = value;
-      print(value.toJson());
-      if (value.success) {
-        homePageState = HomePageState.Result;
+  Future<bool> findMovieById(String id) async {
+    movieDetailsPageState = MovieDetailsPageState.Loading;
+    try {
+      selectedMovie = await _repository.getMovieById(id);
+      if (selectedMovie.success) {
+        movieDetailsPageState = MovieDetailsPageState.Result;
       } else {
-        homePageState = HomePageState.Error;
+        movieDetailsPageState = MovieDetailsPageState.Error;
       }
-    }).catchError((error) {
-      homePageState = HomePageState.Error;
-    });
+      return selectedMovie.success;
+    } catch (e) {
+      movieDetailsPageState = MovieDetailsPageState.Error;
+      return false;
+    }
   }
 }
 
@@ -66,6 +75,12 @@ enum HomePageState {
   Error,
   Empty,
   Initial,
+  Loading,
+  Result,
+}
+
+enum MovieDetailsPageState {
+  Error,
   Loading,
   Result,
 }
