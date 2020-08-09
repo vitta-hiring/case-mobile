@@ -10,7 +10,7 @@ class HomeHeader extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
           child: Text(
-            "Após os Créditos",
+            "Depois dos Créditos",
             style: TextStyle(color: Colors.white, fontSize: 20),
           ),
         ),

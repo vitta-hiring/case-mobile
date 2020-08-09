@@ -50,7 +50,7 @@ class MovieModel {
     final String poster;
     final List<RatingModel> ratings;
     final String metascore;
-    final String imdbRating;
+    final double imdbRating;
     final String imdbVotes;
     final String imdbId;
     final String type;
@@ -77,7 +77,7 @@ class MovieModel {
         String poster,
         List<RatingModel> ratings,
         String metascore,
-        String imdbRating,
+        double imdbRating,
         String imdbVotes,
         String imdbId,
         String type,
@@ -129,10 +129,10 @@ class MovieModel {
         language: json["Language"] == null ? null : json["Language"],
         country: json["Country"] == null ? null : json["Country"],
         awards: json["Awards"] == null ? null : json["Awards"],
-        poster: json["Poster"] == null ? null : json["Poster"],
+        poster: (json["Poster"] == null || json["Poster"] == "N/A") ? "" : json["Poster"],
         ratings: json["Ratings"] == null ? null : List<RatingModel>.from(json["Ratings"].map((x) => RatingModel.fromJson(x))),
         metascore: json["Metascore"] == null ? null : json["Metascore"],
-        imdbRating: json["imdbRating"] == null ? null : json["imdbRating"],
+        imdbRating: json["imdbRating"] == null ? null : double.parse(json["imdbRating"]),
         imdbVotes: json["imdbVotes"] == null ? null : json["imdbVotes"],
         imdbId: json["imdbID"] == null ? null : json["imdbID"],
         type: json["Type"] == null ? null : json["Type"],

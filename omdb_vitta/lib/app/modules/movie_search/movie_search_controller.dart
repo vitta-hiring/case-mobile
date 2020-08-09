@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 
+import '../../shared/models/movie_model.dart';
 import 'models/movie_search_response_model.dart';
 import 'movie_search_repository.dart';
 import 'movie_search_store.dart';
@@ -30,12 +31,15 @@ abstract class _MovieSearchControllerBase extends Disposable with Store {
   @observable
   ObservableFuture<MovieSearchResponseModel> moviesListResponse = ObservableFuture.value(null);
 
+  @observable
+  ObservableFuture<MovieModel> movieInfoResponse = ObservableFuture.value(null);
+
   int page = 1;
   int totalPages = 1;
 
   @action
   nextMoviesPage() {
-    if (page <= totalPages) {
+    if (page == 1 || page <= totalPages) {
       page++;
     }
     doSearchMovie(store.searchStore.searchData, nextPage: true);
@@ -69,13 +73,31 @@ abstract class _MovieSearchControllerBase extends Disposable with Store {
           print("PÁGINA ATUAL: ${page}");
         } else if (!nextPage) {
           store.setCurrentPageIndex(0);
-          carouselController.animateToPage(0);
+          if (store.moviesList != null && store.moviesList.length > 0) {
+            carouselController.animateToPage(0);
+          }
           store.moviesList = moviesListResponse?.value?.moviesList?.asObservable();
           store.setMaxSearchItems(moviesListResponse?.value?.totalResults ?? 0);
         }
 
         print(store.moviesList?.first);
       }
+      cancel();
+    } on DioError catch (e) {
+      print(e);
+      cancel();
+    }
+  }
+
+  @action
+  doSearchMovieById({String id}) async {
+    var cancel = BotToast.showLoading();
+    try {
+      movieInfoResponse = repository.searchMovieById(id: id).asObservable();
+
+      await movieInfoResponse;
+
+      store.selectedMovie = movieInfoResponse.value;
       cancel();
     } on DioError catch (e) {
       print(e);

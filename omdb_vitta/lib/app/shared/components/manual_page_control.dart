@@ -5,8 +5,11 @@ import 'package:flutter/material.dart';
 class ManualPageControl extends StatefulWidget {
   final List<Widget> items;
   final List<Widget> titles;
+  final double height;
   final CarouselController controller;
   final Function(int, CarouselPageChangedReason) onPageChanged;
+  final bool hasTitles;
+  final Function onTapMovie;
 
   const ManualPageControl({
     Key key,
@@ -14,6 +17,9 @@ class ManualPageControl extends StatefulWidget {
     this.titles,
     this.controller,
     this.onPageChanged,
+    this.height,
+    @required this.hasTitles,
+    @required this.onTapMovie,
   }) : super(key: key);
 
   @override
@@ -27,39 +33,35 @@ class _ManualPageControlState extends State<ManualPageControl> {
       physics: NeverScrollableScrollPhysics(),
       child: CarouselSlider(
         items: widget.items.asMap().entries.map((e) {
-          return Container(
-            margin: EdgeInsets.all(5.0),
-            // color: Colors.purple,
-            child: Center(
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.only(bottom: 20),
-                    // color: Colors.pink,
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-                      child: widget.titles[e.key],
-                    ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                        // color: Color(0x20000000),
-                        // border: Border.all(width: 2.0),
-                        ),
-                    child: e.value,
-                  ),
-                ],
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+                Spacer(),
+              widget.hasTitles
+                  ? Container(
+                      margin: EdgeInsets.only(bottom: 20),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                        child: widget.titles[e.key],
+                      ),
+                    )
+                  : SizedBox(),
+              InkWell(
+                onTap: widget.onTapMovie,
+                child: Container(child: e.value),
               ),
-            ),
+                Spacer(),
+            ],
           );
         }).toList(),
         options: CarouselOptions(
           aspectRatio: (9 / 16),
           initialPage: 0,
           enlargeCenterPage: true,
-          viewportFraction: 0.75,
+          viewportFraction: 0.85,
           enableInfiniteScroll: false,
           onPageChanged: widget.onPageChanged,
+          height: widget.height,
         ),
         carouselController: widget.controller,
       ),

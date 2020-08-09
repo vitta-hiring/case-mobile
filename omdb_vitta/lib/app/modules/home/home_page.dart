@@ -24,13 +24,12 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
       body: SafeArea(
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              Spacer(flex: 3),
               HomeHeader(),
-              Spacer(flex: 1),
+              Image.asset("assets/background.png"),
               Padding(
-                padding: const EdgeInsets.all(32.0),
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: ACTextFormField(
                   enableFormField: false,
                   searchStore: controller.store.searchStore,
@@ -40,13 +39,10 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                 ),
               ),
               TypeButtons(store: controller.store),
-              Spacer(flex: 2),
             ],
           ),
         ),
       ),
-
-      
     );
   }
 }

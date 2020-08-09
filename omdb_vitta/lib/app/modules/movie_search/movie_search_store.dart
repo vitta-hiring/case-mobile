@@ -34,4 +34,14 @@ abstract class _MovieSearchStoreBase with Store {
 
   @computed
   bool get showLeftArrow => currentPageIndex == 0 ? true : false;
+
+  @observable
+  MovieModel movieOnScreen;
+  @action
+  setMovieOnScreen(MovieModel movie) => movieOnScreen = movie;
+  
+  @observable
+  MovieModel selectedMovie;
+  @action
+  setSelectedMovie(MovieModel movie) => selectedMovie = movie;
 }
