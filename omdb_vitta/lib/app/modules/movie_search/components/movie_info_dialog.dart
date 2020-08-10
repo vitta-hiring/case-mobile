@@ -50,19 +50,19 @@ class _MovieInfoDialogState extends State<MovieInfoDialog> {
                 ),
                 Padding(
                   padding: EdgeInsets.fromLTRB(16, 0, 16, 8),
-                  child: Text("${movie.plot == "N/A" ? "Sem resumo" : movie.plot}"),
+                  child: Text("${movie.plot}"),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                  child: Row(children: [Text("Diretor: ${movie.director}")]),
+                  child: Row(children: [Expanded(child: Text("Diretor: ${movie.director}"))]),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                  child: Row(children: [Text("Tempo: ${movie.runtime}")]),
+                  child: Row(children: [Expanded(child: Text("Tempo: ${movie.runtime}"))]),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                  child: Row(children: [Text("Gênero: ${movie.genre}")]),
+                  child: Row(children: [Expanded(child: Text("Gênero: ${movie.genre}"))]),
                 ),
                 Padding(
                   padding: EdgeInsets.only(bottom: 8.0),
