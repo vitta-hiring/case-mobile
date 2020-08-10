@@ -50,19 +50,19 @@ class _MovieInfoDialogState extends State<MovieInfoDialog> {
                 ),
                 Padding(
                   padding: EdgeInsets.fromLTRB(16, 0, 16, 8),
-                  child: Text("${movie.plot}"),
+                  child: Text("${movie.plot == "N/A" ? "Sem resumo" : movie.plot}"),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                  child: Row(children: [Text("Director: ${movie.director}")]),
+                  child: Row(children: [Text("Diretor: ${movie.director}")]),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                  child: Row(children: [Text("Runtime: ${movie.runtime}")]),
+                  child: Row(children: [Text("Tempo: ${movie.runtime}")]),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                  child: Row(children: [Text("Genre: ${movie.genre}")]),
+                  child: Row(children: [Text("Gênero: ${movie.genre}")]),
                 ),
                 Padding(
                   padding: EdgeInsets.only(bottom: 8.0),
@@ -71,7 +71,7 @@ class _MovieInfoDialogState extends State<MovieInfoDialog> {
                       Transform.scale(
                         scale: 0.75,
                         child: RatingBarIndicator(
-                          rating: movie.imdbRating / 2,
+                          rating: movie.imdbRating == 0.00001 ? 0.0 : movie.imdbRating / 2,
                           direction: Axis.horizontal,
                           itemCount: 5,
                           itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
@@ -81,7 +81,7 @@ class _MovieInfoDialogState extends State<MovieInfoDialog> {
                           ),
                         ),
                       ),
-                      Text((movie.imdbRating / 2).toString()),
+                      Text(movie.imdbRating == 0.00001 ? "Sem Classificação" : (movie.imdbRating / 2).toString()),
                     ],
                   ),
                 )

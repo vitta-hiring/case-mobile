@@ -129,7 +129,7 @@ class MovieModel {
             ? null
             : List<RatingModel>.from(json["Ratings"].map((x) => RatingModel.fromJson(x))),
         metascore: json["Metascore"] == null ? null : json["Metascore"],
-        imdbRating: json["imdbRating"] == null ? null : double.parse(json["imdbRating"]),
+        imdbRating: (json["imdbRating"] == null || json["imdbRating"] == "N/A") ? 0.00001 : double.parse(json["imdbRating"]),
         imdbVotes: json["imdbVotes"] == null ? null : json["imdbVotes"],
         imdbId: json["imdbID"] == null ? null : json["imdbID"],
         type: json["Type"] == null ? null : json["Type"],
