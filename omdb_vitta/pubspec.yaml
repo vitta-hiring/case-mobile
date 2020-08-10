@@ -1,5 +1,5 @@
 name: omdb_vitta
-description: A new Flutter project. Created by Slidy
+description: Projeto criado para pesquisa de filmes utilizando a OMDB API
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.

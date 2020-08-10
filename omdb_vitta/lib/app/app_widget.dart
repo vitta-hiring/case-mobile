@@ -8,7 +8,7 @@ class AppWidget extends StatelessWidget {
     return MaterialApp(
       navigatorKey: Modular.navigatorKey,
       builder: BotToastInit(),
-      title: 'Flutter Slidy',
+      title: 'Depois dos Créditos',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

@@ -30,16 +30,17 @@ abstract class _MovieSearchStoreBase with Store {
   setMaxSearchItems(int newValue) => maxSearchItems = newValue;
 
   @computed
-  bool get showRigthArrow => maxSearchItems == currentPageIndex && currentPageIndex != 0 ? true : false;
+  bool get showRigthArrow =>
+      (moviesList.isNotEmpty && moviesList.length > 1 && currentPageIndex != moviesList.length - 1) ? true : false;
 
   @computed
-  bool get showLeftArrow => currentPageIndex == 0 ? true : false;
+  bool get showLeftArrow => (moviesList.isNotEmpty && moviesList.length > 1 && currentPageIndex != 0) ? true : false;
 
   @observable
-  MovieModel movieOnScreen;
+  MovieModel movieOnScreen = MovieModel();
   @action
   setMovieOnScreen(MovieModel movie) => movieOnScreen = movie;
-  
+
   @observable
   MovieModel selectedMovie;
   @action

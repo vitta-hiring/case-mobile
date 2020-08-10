@@ -1,121 +1,116 @@
-// To parse this JSON data, do
-//
-//     final movieModel = movieModelFromJson(jsonString);
-
-import 'package:meta/meta.dart';
-
 import 'rating_model.dart';
+
 class MovieModel {
-    MovieModel({
-        @required this.title,
-        @required this.year,
-        @required this.rated,
-        @required this.released,
-        @required this.runtime,
-        @required this.genre,
-        @required this.director,
-        @required this.writer,
-        @required this.actors,
-        @required this.plot,
-        @required this.language,
-        @required this.country,
-        @required this.awards,
-        @required this.poster,
-        @required this.ratings,
-        @required this.metascore,
-        @required this.imdbRating,
-        @required this.imdbVotes,
-        @required this.imdbId,
-        @required this.type,
-        @required this.dvd,
-        @required this.boxOffice,
-        @required this.production,
-        @required this.website,
-        @required this.response,
-    });
+  MovieModel({
+    this.title,
+    this.year,
+    this.rated,
+    this.released,
+    this.runtime,
+    this.genre,
+    this.director,
+    this.writer,
+    this.actors,
+    this.plot,
+    this.language,
+    this.country,
+    this.awards,
+    this.poster,
+    this.ratings,
+    this.metascore,
+    this.imdbRating,
+    this.imdbVotes,
+    this.imdbId,
+    this.type,
+    this.dvd,
+    this.boxOffice,
+    this.production,
+    this.website,
+    this.response,
+  });
 
-    final String title;
-    final String year;
-    final String rated;
-    final String released;
-    final String runtime;
-    final String genre;
-    final String director;
-    final String writer;
-    final String actors;
-    final String plot;
-    final String language;
-    final String country;
-    final String awards;
-    final String poster;
-    final List<RatingModel> ratings;
-    final String metascore;
-    final double imdbRating;
-    final String imdbVotes;
-    final String imdbId;
-    final String type;
-    final String dvd;
-    final String boxOffice;
-    final String production;
-    final String website;
-    final String response;
+  final String title;
+  final String year;
+  final String rated;
+  final String released;
+  final String runtime;
+  final String genre;
+  final String director;
+  final String writer;
+  final String actors;
+  final String plot;
+  final String language;
+  final String country;
+  final String awards;
+  final String poster;
+  final List<RatingModel> ratings;
+  final String metascore;
+  final double imdbRating;
+  final String imdbVotes;
+  final String imdbId;
+  final String type;
+  final String dvd;
+  final String boxOffice;
+  final String production;
+  final String website;
+  final String response;
 
-    MovieModel copyWith({
-        String title,
-        String year,
-        String rated,
-        String released,
-        String runtime,
-        String genre,
-        String director,
-        String writer,
-        String actors,
-        String plot,
-        String language,
-        String country,
-        String awards,
-        String poster,
-        List<RatingModel> ratings,
-        String metascore,
-        double imdbRating,
-        String imdbVotes,
-        String imdbId,
-        String type,
-        String dvd,
-        String boxOffice,
-        String production,
-        String website,
-        String response,
-    }) => 
-        MovieModel(
-            title: title ?? this.title,
-            year: year ?? this.year,
-            rated: rated ?? this.rated,
-            released: released ?? this.released,
-            runtime: runtime ?? this.runtime,
-            genre: genre ?? this.genre,
-            director: director ?? this.director,
-            writer: writer ?? this.writer,
-            actors: actors ?? this.actors,
-            plot: plot ?? this.plot,
-            language: language ?? this.language,
-            country: country ?? this.country,
-            awards: awards ?? this.awards,
-            poster: poster ?? this.poster,
-            ratings: ratings ?? this.ratings,
-            metascore: metascore ?? this.metascore,
-            imdbRating: imdbRating ?? this.imdbRating,
-            imdbVotes: imdbVotes ?? this.imdbVotes,
-            imdbId: imdbId ?? this.imdbId,
-            type: type ?? this.type,
-            dvd: dvd ?? this.dvd,
-            boxOffice: boxOffice ?? this.boxOffice,
-            production: production ?? this.production,
-            website: website ?? this.website,
-            response: response ?? this.response,
-        );
+  MovieModel copyWith({
+    String title,
+    String year,
+    String rated,
+    String released,
+    String runtime,
+    String genre,
+    String director,
+    String writer,
+    String actors,
+    String plot,
+    String language,
+    String country,
+    String awards,
+    String poster,
+    List<RatingModel> ratings,
+    String metascore,
+    double imdbRating,
+    String imdbVotes,
+    String imdbId,
+    String type,
+    String dvd,
+    String boxOffice,
+    String production,
+    String website,
+    String response,
+  }) =>
+      MovieModel(
+        title: title ?? this.title,
+        year: year ?? this.year,
+        rated: rated ?? this.rated,
+        released: released ?? this.released,
+        runtime: runtime ?? this.runtime,
+        genre: genre ?? this.genre,
+        director: director ?? this.director,
+        writer: writer ?? this.writer,
+        actors: actors ?? this.actors,
+        plot: plot ?? this.plot,
+        language: language ?? this.language,
+        country: country ?? this.country,
+        awards: awards ?? this.awards,
+        poster: poster ?? this.poster,
+        ratings: ratings ?? this.ratings,
+        metascore: metascore ?? this.metascore,
+        imdbRating: imdbRating ?? this.imdbRating,
+        imdbVotes: imdbVotes ?? this.imdbVotes,
+        imdbId: imdbId ?? this.imdbId,
+        type: type ?? this.type,
+        dvd: dvd ?? this.dvd,
+        boxOffice: boxOffice ?? this.boxOffice,
+        production: production ?? this.production,
+        website: website ?? this.website,
+        response: response ?? this.response,
+      );
 
-    factory MovieModel.fromJson(Map<String, dynamic> json) => MovieModel(
+  factory MovieModel.fromJson(Map<String, dynamic> json) => MovieModel(
         title: json["Title"] == null ? null : json["Title"],
         year: json["Year"] == null ? null : json["Year"],
         rated: json["Rated"] == null ? null : json["Rated"],
@@ -130,7 +125,9 @@ class MovieModel {
         country: json["Country"] == null ? null : json["Country"],
         awards: json["Awards"] == null ? null : json["Awards"],
         poster: (json["Poster"] == null || json["Poster"] == "N/A") ? "" : json["Poster"],
-        ratings: json["Ratings"] == null ? null : List<RatingModel>.from(json["Ratings"].map((x) => RatingModel.fromJson(x))),
+        ratings: json["Ratings"] == null
+            ? null
+            : List<RatingModel>.from(json["Ratings"].map((x) => RatingModel.fromJson(x))),
         metascore: json["Metascore"] == null ? null : json["Metascore"],
         imdbRating: json["imdbRating"] == null ? null : double.parse(json["imdbRating"]),
         imdbVotes: json["imdbVotes"] == null ? null : json["imdbVotes"],
@@ -141,9 +138,9 @@ class MovieModel {
         production: json["Production"] == null ? null : json["Production"],
         website: json["Website"] == null ? null : json["Website"],
         response: json["Response"] == null ? null : json["Response"],
-    );
+      );
 
-    Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() => {
         "Title": title == null ? null : title,
         "Year": year == null ? null : year,
         "Rated": rated == null ? null : rated,
@@ -169,7 +166,7 @@ class MovieModel {
         "Production": production == null ? null : production,
         "Website": website == null ? null : website,
         "Response": response == null ? null : response,
-    };
+      };
 
   @override
   String toString() {

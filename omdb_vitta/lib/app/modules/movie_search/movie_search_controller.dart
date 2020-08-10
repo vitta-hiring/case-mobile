@@ -43,7 +43,7 @@ abstract class _MovieSearchControllerBase extends Disposable with Store {
       page++;
     }
     doSearchMovie(store.searchStore.searchData, nextPage: true);
-    print("PÁGINA ATUAL: $page");
+    // print("PÁGINA ATUAL: $page");
   }
 
   @action
@@ -66,21 +66,22 @@ abstract class _MovieSearchControllerBase extends Disposable with Store {
         }
         totalPages = maxPages;
 
-        print("TOTAL DE PÁGINAS: ${totalPages}");
+        // print("TOTAL DE PÁGINAS: ${totalPages}");
 
         if (nextPage && page <= totalPages) {
           store.moviesList.addAll(moviesListResponse?.value?.moviesList?.asObservable());
-          print("PÁGINA ATUAL: ${page}");
+          // print("PÁGINA ATUAL: ${page}");
         } else if (!nextPage) {
           store.setCurrentPageIndex(0);
-          if (store.moviesList != null && store.moviesList.length > 0) {
+          if (store.moviesList != null && store.moviesList.isNotEmpty) {
             carouselController.animateToPage(0);
           }
-          store.moviesList = moviesListResponse?.value?.moviesList?.asObservable();
+          store.moviesList = moviesListResponse?.value?.moviesList?.asObservable() ?? <MovieModel>[].asObservable();
           store.setMaxSearchItems(moviesListResponse?.value?.totalResults ?? 0);
+          if (store.moviesList.isNotEmpty) {
+            store.setMovieOnScreen(store.moviesList[0]);
+          }
         }
-
-        print(store.moviesList?.first);
       }
       cancel();
     } on DioError catch (e) {

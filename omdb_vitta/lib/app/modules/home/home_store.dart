@@ -35,12 +35,10 @@ abstract class _HomeStoreBase with Store {
       _movieSelected = true;
       _seriesSelected = false;
       searchStore.setSearchType("movie");
-      print(searchStore.searchType);
     } else if (isMovieSelected && seriesType && !movieType) {
       _movieSelected = false;
       _seriesSelected = true;
       searchStore.setSearchType("series");
-      print(searchStore.searchType);
     }
   }
 }

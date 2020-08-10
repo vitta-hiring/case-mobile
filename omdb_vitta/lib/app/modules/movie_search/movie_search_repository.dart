@@ -12,9 +12,11 @@ class MovieSearchRepository extends Disposable {
 
   Future<MovieSearchResponseModel> searchMovie({String movieName, String type, int page}) async {
     try {
-      print("nome do filme pesquisado: ${movieName}");
-      var response = await _httpProvider
-          .get("", queryParameters: {"apikey": "d12b4be8", "s": "$movieName", "type": "$type", "page": "$page"});
+      print("Nome do filme pesquisado: ${movieName}");
+      var response = await _httpProvider.get(
+        "",
+        queryParameters: {"apikey": "d12b4be8", "s": "$movieName", "type": "$type", "page": "$page"},
+      );
 
       var _finalResponse = MovieSearchResponseModel.fromJson(response.data);
       return _finalResponse;

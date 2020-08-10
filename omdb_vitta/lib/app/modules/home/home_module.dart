@@ -5,14 +5,12 @@ import '../../shared/stores/search_store.dart';
 import '../movie_search/movie_search_module.dart';
 import 'home_controller.dart';
 import 'home_page.dart';
-import 'home_repository.dart';
 import 'home_store.dart';
 
 class HomeModule extends ChildModule {
   @override
   List<Bind> get binds => [
-        Bind((i) => HomeController(i.get<HomeRepository>(), i.get<HomeStore>())),
-        Bind((i) => HomeRepository(i.get<CustomDio>())),
+        Bind((i) => HomeController(i.get<HomeStore>())),
         Bind((i) => HomeStore(i.get<SearchStore>())),
         Bind((i) => SearchStore()),
         Bind((i) => CustomDio()),
