@@ -50,7 +50,7 @@ class _MovieInfoDialogState extends State<MovieInfoDialog> {
                 ),
                 Padding(
                   padding: EdgeInsets.fromLTRB(16, 0, 16, 8),
-                  child: Text("${movie.plot}"),
+                  child: Row(children: [Expanded(child: Text("${movie.plot}"))]),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
