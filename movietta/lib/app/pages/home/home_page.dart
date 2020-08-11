@@ -49,7 +49,10 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: isSearch
-            ? textField
+            ? Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: textField,
+              )
             : Text(
                 'MOVITTA',
                 style: GoogleFonts.viga(
@@ -92,6 +95,7 @@ class _HomePageState extends State<HomePage> {
                 viewportFraction: 0.8,
                 autoPlay: true,
                 autoPlayInterval: Duration(seconds: 12),
+                initialPage: initialPage,
                 autoPlayCurve: Curves.fastOutSlowIn,
                 enlargeCenterPage: true,
               ),
@@ -110,19 +114,17 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.transparent,
-        child: GestureDetector(
-          child: Icon(
-            Icons.keyboard_arrow_right,
-            size: 70,
-            color: isSearch ? Colors.transparent : Colors.white,
-          ),
-          onTap: () {
-            if (!isSearch) {
-              initialPage = list.length - 1;
-              homeController.fetchMore();
-            }
-          },
+        child: Icon(
+          Icons.keyboard_arrow_right,
+          size: 60,
+          color: isSearch ? Colors.transparent : Colors.white,
         ),
+        onPressed: () {
+          if (!isSearch) {
+            initialPage = list.length - 1;
+            homeController.fetchMore();
+          }
+        },
       ),
     );
   }

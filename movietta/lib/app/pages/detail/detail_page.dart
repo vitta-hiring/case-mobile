@@ -60,7 +60,7 @@ class _DetailPageState extends State<DetailPage> {
                         children: <Widget>[
                           Container(
                             margin: EdgeInsets.symmetric(horizontal: 5.0),
-                            child: SizedBox(
+                            child: Container(
                               height: 250,
                               width: 200,
                               child: Image.network(movieModel.poster),
@@ -69,7 +69,7 @@ class _DetailPageState extends State<DetailPage> {
                           Container(
                             margin: EdgeInsets.symmetric(
                                 horizontal: 20.0, vertical: 10),
-                            child: SizedBox(
+                            child: Container(
                               height: 250,
                               width: 160,
                               child: Column(
@@ -102,7 +102,7 @@ class _DetailPageState extends State<DetailPage> {
                                     alignment: Alignment.centerLeft,
                                     child: Row(
                                       children: <Widget>[
-                                        SizedBox(
+                                        Container(
                                           height: 25,
                                           width: 25,
                                           child: ImageLoader.fromAsset(
@@ -146,7 +146,7 @@ class _DetailPageState extends State<DetailPage> {
                         ),
                       ),
                       Divider(),
-                      Expanded(
+                      Container(
                         child: Container(
                           margin: EdgeInsets.all(15.0),
                           child: WhiteText(
@@ -161,20 +161,20 @@ class _DetailPageState extends State<DetailPage> {
                 SliverList(
                   delegate: SliverChildBuilderDelegate(
                     (_, int index) {
-                      return Expanded(
+                      return Container(
                         child: Container(
                             margin: EdgeInsets.only(left: 30, right: 30),
                             alignment: Alignment.centerLeft,
                             child: Row(
                               children: <Widget>[
-                                SizedBox(
+                                Container(
                                   height: 150,
                                   width: 100,
                                   child: (movieModel.ratings[index].logo),
                                 ),
                                 Spacer(),
                                 Container(
-                                  child: SizedBox(
+                                  child: Container(
                                     height: 60,
                                     width: 60,
                                     child: Stack(
