@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:movietta/app/pages/home/home_controller.dart';
 import 'package:movietta/app/shared/models/movie_model.dart';
 import 'package:movietta/app/widgets/movie_card_widget.dart';
+import 'package:movietta/app/widgets/white_text_widget.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -70,7 +71,10 @@ class _HomePageState extends State<HomePage> {
         builder: (_) {
           if (homeController.movies.error != null) {
             return Center(
-              child: Text('Sem Filmes'),
+              child: WhiteText(
+                text: ':(',
+                fontSize: 50,
+              ),
             );
           }
           if (homeController.movies.value == null) {
