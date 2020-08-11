@@ -49,7 +49,10 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: isSearch
-            ? textField
+            ? Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: textField,
+              )
             : Text(
                 'MOVITTA',
                 style: GoogleFonts.viga(
@@ -86,50 +89,42 @@ class _HomePageState extends State<HomePage> {
           }
           list.addAll(homeController.movies.value);
           return Center(
-            child: CarouselSlider.builder(
+            child: CarouselSlider(
               options: CarouselOptions(
-                height: 600,
-                aspectRatio: 16 / 9,
-                viewportFraction: 1,
-                initialPage: initialPage,
-                enableInfiniteScroll: true,
-                reverse: false,
+                height: 600.0,
+                viewportFraction: 0.8,
                 autoPlay: true,
-                autoPlayInterval: Duration(seconds: 10),
-                autoPlayAnimationDuration: Duration(milliseconds: 800),
+                autoPlayInterval: Duration(seconds: 12),
+                initialPage: initialPage,
                 autoPlayCurve: Curves.fastOutSlowIn,
                 enlargeCenterPage: true,
-                // onPageChanged: callbackFunction,
-                scrollDirection: Axis.horizontal,
               ),
-              itemCount: list.length,
-              itemBuilder: (BuildContext context, int index) => Container(
-                margin: EdgeInsets.symmetric(horizontal: 20.0),
-                child: Row(
-                  children: <Widget>[
-                    MovieCard(list[index]),
-                  ],
-                ),
-              ),
+              items: list.map((i) {
+                return Builder(
+                  builder: (BuildContext context) {
+                    return SingleChildScrollView(
+                      child: MovieCard(i),
+                    );
+                  },
+                );
+              }).toList(),
             ),
           );
         },
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.transparent,
-        child: GestureDetector(
-          child: Icon(
-            Icons.keyboard_arrow_right,
-            size: 70,
-            color: isSearch ? Colors.transparent : Colors.white,
-          ),
-          onTap: () {
-            if (!isSearch) {
-              initialPage = list.length - 1;
-              homeController.fetchMore();
-            }
-          },
+        child: Icon(
+          Icons.keyboard_arrow_right,
+          size: 60,
+          color: isSearch ? Colors.transparent : Colors.white,
         ),
+        onPressed: () {
+          if (!isSearch) {
+            initialPage = list.length - 1;
+            homeController.fetchMore();
+          }
+        },
       ),
     );
   }
