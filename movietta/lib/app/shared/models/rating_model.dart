@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movietta/app/shared/models/rating_domain_enum.dart';
 import 'package:movietta/app/utils/image_loader.dart';
 
 class RatingModel {
@@ -28,6 +29,11 @@ class RatingModel {
     this.valueBackground = this.raterDomain == RaterDomain.IMDB
         ? ImageLoader.fromAsset('imdb-star')
         : basedOnRating(this.raterDomain, this.value);
+
+    this.value = (this.raterDomain == RaterDomain.IMDB ||
+            this.raterDomain == RaterDomain.METACRITIC)
+        ? this.value.substring(0, this.value.indexOf('/'))
+        : this.value;
   }
 
   Widget basedOnRating(RaterDomain raterDomain, String value) {
@@ -55,5 +61,3 @@ class RatingModel {
     return basedOnRatingBackground;
   }
 }
-
-enum RaterDomain { IMDB, ROTTEN, METACRITIC }

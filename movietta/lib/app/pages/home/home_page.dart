@@ -19,15 +19,51 @@ class _HomePageState extends State<HomePage> {
   List<MovieModel> list = [];
   int initialPage = 0;
 
+  TextEditingController textEditingController = TextEditingController();
+
+  bool isSearch = false;
+
   @override
   Widget build(BuildContext context) {
+    var textField = TextFormField(
+      controller: textEditingController,
+      autofocus: true,
+      style: TextStyle(color: Colors.white),
+      decoration: InputDecoration(
+          hintStyle: TextStyle(color: Colors.white70), hintText: 'Search'),
+      onFieldSubmitted: (_) {
+        FocusScopeNode currentFocus = FocusScope.of(context);
+        homeController.title = textEditingController.text;
+        setState(() {
+          list = [];
+          isSearch = false;
+        });
+        textEditingController.text = '';
+        homeController.fetchMovies();
+        currentFocus.unfocus();
+      },
+    );
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        title: Text(
-          'MoVietta',
-          style: GoogleFonts.lekton(color: Colors.deepPurple, fontSize: 30),
-        ),
+        title: isSearch
+            ? textField
+            : Text(
+                'MOVITTA',
+                style: GoogleFonts.viga(
+                    color: Colors.deepPurple, fontSize: 30, letterSpacing: 1),
+              ),
+        actions: <Widget>[
+          IconButton(
+            onPressed: () {
+              setState(() {
+                isSearch = isSearch ? false : true;
+              });
+            },
+            icon: Icon(isSearch ? Icons.close : Icons.search),
+          ),
+        ],
       ),
       backgroundColor: Colors.black87,
       body: Observer(
@@ -81,11 +117,13 @@ class _HomePageState extends State<HomePage> {
           child: Icon(
             Icons.keyboard_arrow_right,
             size: 70,
-            color: Colors.white,
+            color: isSearch ? Colors.transparent : Colors.white,
           ),
           onTap: () {
-            initialPage = list.length - 1;
-            homeController.fetchMore();
+            if (!isSearch) {
+              initialPage = list.length - 1;
+              homeController.fetchMore();
+            }
           },
         ),
       ),
