@@ -1,6 +1,14 @@
 # movietta
 
-A new Flutter project.
+Teste da Vitta | Dev Mobile
+
+flutter pub get
+
+flutter pub run flutter_launcher_icons:main
+
+flutter pub pub run flutter_native_splash:create
+
+flutter run ou flutter build apk
 
 ## Getting Started
 
