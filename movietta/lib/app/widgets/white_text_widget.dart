@@ -11,6 +11,7 @@ class WhiteText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
+      textDirection: TextDirection.ltr,
       style: GoogleFonts.openSans(
         color: Colors.white,
         fontSize: fontSize,

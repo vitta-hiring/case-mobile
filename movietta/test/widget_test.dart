@@ -5,25 +5,18 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:movietta/app/app_widget.dart';
+import 'package:movietta/app/widgets/white_text_widget.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(AppWidget());
-
-    // Verify that our counter starts at 0.
-    expect(find.text('MoVietta'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+  testWidgets('Test WhiteText widget', (WidgetTester tester) async {
+    await tester.pumpWidget(WhiteText(
+      text: 'Arara',
+      fontSize: 20,
+    ));
+    final textFinder = find.text('Arara');
+    expect(textFinder, findsOneWidget);
 
     // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
   });
 }
