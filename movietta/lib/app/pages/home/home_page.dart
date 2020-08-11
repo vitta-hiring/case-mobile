@@ -86,31 +86,15 @@ class _HomePageState extends State<HomePage> {
           }
           list.addAll(homeController.movies.value);
           return Center(
-            child: CarouselSlider.builder(
-              options: CarouselOptions(
-                height: 600,
-                aspectRatio: 16 / 9,
-                viewportFraction: 1,
-                initialPage: initialPage,
-                enableInfiniteScroll: true,
-                reverse: false,
-                autoPlay: true,
-                autoPlayInterval: Duration(seconds: 10),
-                autoPlayAnimationDuration: Duration(milliseconds: 800),
-                autoPlayCurve: Curves.fastOutSlowIn,
-                enlargeCenterPage: true,
-                // onPageChanged: callbackFunction,
-                scrollDirection: Axis.horizontal,
-              ),
-              itemCount: list.length,
-              itemBuilder: (BuildContext context, int index) => Container(
-                margin: EdgeInsets.symmetric(horizontal: 20.0),
-                child: Row(
-                  children: <Widget>[
-                    MovieCard(list[index]),
-                  ],
-                ),
-              ),
+            child: CarouselSlider(
+              options: CarouselOptions(height: 600.0),
+              items: list.map((i) {
+                return Builder(
+                  builder: (BuildContext context) {
+                    return MovieCard(i);
+                  },
+                );
+              }).toList(),
             ),
           );
         },

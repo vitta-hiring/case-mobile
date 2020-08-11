@@ -13,53 +13,49 @@ class MovieCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      child: GestureDetector(
-        child: Column(
-          children: <Widget>[
-            Image.network(
-              movieModel.poster,
-              loadingBuilder: (BuildContext context, Widget child,
-                  ImageChunkEvent loadingProgress) {
-                if (loadingProgress == null) return child;
-                return Center(
-                  child: CircularProgressIndicator(
-                    value: loadingProgress.expectedTotalBytes != null
-                        ? loadingProgress.cumulativeBytesLoaded /
-                            loadingProgress.expectedTotalBytes
-                        : null,
-                  ),
-                );
-              },
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Center(
-              child: Flexible(
-                child: SizedBox(
-                  width: 300,
-                  height: 100,
-                  child: Center(
-                    child: Text(
-                      movieModel.title,
-                      style: GoogleFonts.openSans(
-                        color: Colors.white,
-                        fontSize: 25,
-                        letterSpacing: 3,
-                      ),
-                    ),
+    return GestureDetector(
+      child: Column(
+        children: <Widget>[
+          Image.network(
+            movieModel.poster,
+            loadingBuilder: (BuildContext context, Widget child,
+                ImageChunkEvent loadingProgress) {
+              if (loadingProgress == null) return child;
+              return Center(
+                child: CircularProgressIndicator(
+                  value: loadingProgress.expectedTotalBytes != null
+                      ? loadingProgress.cumulativeBytesLoaded /
+                          loadingProgress.expectedTotalBytes
+                      : null,
+                ),
+              );
+            },
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          Center(
+            child: SizedBox(
+              width: 300,
+              height: 100,
+              child: Center(
+                child: Text(
+                  movieModel.title,
+                  style: GoogleFonts.openSans(
+                    color: Colors.white,
+                    fontSize: 25,
+                    letterSpacing: 3,
                   ),
                 ),
               ),
             ),
-          ],
-        ),
-        onTap: () {
-          detailController.imdbId = movieModel.imdbId;
-          Modular.to.pushNamed('/detail');
-        },
+          ),
+        ],
       ),
+      onTap: () {
+        detailController.imdbId = movieModel.imdbId;
+        Modular.to.pushNamed('/detail');
+      },
     );
   }
 }
