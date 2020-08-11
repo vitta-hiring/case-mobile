@@ -87,11 +87,20 @@ class _HomePageState extends State<HomePage> {
           list.addAll(homeController.movies.value);
           return Center(
             child: CarouselSlider(
-              options: CarouselOptions(height: 600.0),
+              options: CarouselOptions(
+                height: 600.0,
+                viewportFraction: 0.8,
+                autoPlay: true,
+                autoPlayInterval: Duration(seconds: 12),
+                autoPlayCurve: Curves.fastOutSlowIn,
+                enlargeCenterPage: true,
+              ),
               items: list.map((i) {
                 return Builder(
                   builder: (BuildContext context) {
-                    return MovieCard(i);
+                    return SingleChildScrollView(
+                      child: MovieCard(i),
+                    );
                   },
                 );
               }).toList(),
