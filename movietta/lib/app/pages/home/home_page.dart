@@ -63,6 +63,7 @@ class _HomePageState extends State<HomePage> {
             onPressed: () {
               setState(() {
                 isSearch = isSearch ? false : true;
+                textEditingController.text = '';
               });
             },
             icon: Icon(isSearch ? Icons.close : Icons.search),
