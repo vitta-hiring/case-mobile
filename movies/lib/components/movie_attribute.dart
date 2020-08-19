@@ -8,7 +8,7 @@ class MovieAttribute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 110,
+      width: MediaQuery.of(context).size.height/6,
       child: Card(
         
         elevation: 5,
