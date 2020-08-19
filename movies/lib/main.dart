@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:movies/screens/dashboard.dart';
+import 'package:movies/views/dashboard.dart';
 void main() {
   runApp(MyApp());
 }
@@ -12,10 +12,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Filmes',
       theme: ThemeData(
-        textTheme: GoogleFonts.robotoTextTheme(
+        textTheme: GoogleFonts.latoTextTheme(
           Theme.of(context).textTheme,
         ),
-        primarySwatch: Colors.deepOrange,
+        primarySwatch: Colors.deepPurple,
         scaffoldBackgroundColor: Colors.white,
         
       ),

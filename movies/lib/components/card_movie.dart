@@ -33,7 +33,7 @@ class CardMovie extends StatelessWidget {
                   movie.title,   
                   overflow: TextOverflow.ellipsis,  
                   maxLines: 3,             
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(
                   height: 10,

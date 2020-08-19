@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies/components/vertical_items.dart';
 import 'package:movies/models/movie.dart';
-import 'package:movies/search/movie_search.dart';
+import 'package:movies/services/movie_search.dart';
 
 class Dashboard extends StatelessWidget {
   @override

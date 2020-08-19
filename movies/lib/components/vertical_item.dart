@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies/components/card_movie.dart';
 import 'package:movies/models/movie.dart';
-import 'package:movies/screens/movie_details.dart';
+import 'package:movies/views/movie_details.dart';
 import 'package:movies/services/movie.dart';
 import 'package:movies/utils/nav.dart';
 

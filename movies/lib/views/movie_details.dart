@@ -68,7 +68,7 @@ class MovieDetails extends StatelessWidget {
                 ),
                 MovieAttribute(
                   iconName: Icons.star_border,
-                  title: movie.imdbRating,
+                  title: 'iMDB: '+movie.imdbRating+'',
                 ),
               ],
             ),
@@ -76,7 +76,19 @@ class MovieDetails extends StatelessWidget {
               height: 10,
             ),
             Text(
-              movie.plot,
+              'Genre: '+movie.genre,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+                height: 1.5,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              'Film plot: '+movie.plot,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 18,
