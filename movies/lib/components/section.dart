@@ -21,7 +21,7 @@ class Section extends StatelessWidget {
             ),
             FlatButton(
               onPressed: null,
-              child: Text('Ver todos'),
+              child: Text('Melhores filmes'),
             )
           ],
         ),

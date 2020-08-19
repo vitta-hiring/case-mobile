@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movies/components/card_info_movie.dart';
+import 'package:movies/components/bottom_navigation.dart';
+import 'package:movies/components/movie_attribute.dart';
 import 'package:movies/models/movie_info.dart';
 
 class MovieDetails extends StatelessWidget {
@@ -57,15 +58,15 @@ class MovieDetails extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CardInfo(
+                MovieAttribute(
                   iconName: Icons.timer,
                   title: movie.runtime,
                 ),
-                CardInfo(
+                MovieAttribute(
                   iconName: Icons.calendar_today,
                   title: movie.year,
                 ),
-                CardInfo(
+                MovieAttribute(
                   iconName: Icons.star_border,
                   title: movie.imdbRating,
                 ),
@@ -86,35 +87,7 @@ class MovieDetails extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: Row(
-        children: [
-          Expanded(
-            child: RaisedButton(
-              padding: const EdgeInsets.only(top: 10, bottom: 15),
-              onPressed: () {},
-              color: Theme.of(context).primaryColor,
-              textColor: Colors.white,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.play_circle_outline,
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    'Ver o trailer',
-                    style: TextStyle(
-                      fontSize: 18,
-                    ),
-                  )
-                ],
-              ),
-            ),
-          )
-        ],
-      ),
+      bottomNavigationBar: BottomNavigation()
     );
   }
 }

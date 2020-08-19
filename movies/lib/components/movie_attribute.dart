@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class CardInfo extends StatelessWidget {
+class MovieAttribute extends StatelessWidget {
   final String title;
   final IconData iconName;
 
-  const CardInfo({Key key, this.title, this.iconName}) : super(key: key);
+  const MovieAttribute({Key key, this.title, this.iconName}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Card(
