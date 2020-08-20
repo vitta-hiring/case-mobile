@@ -8,8 +8,8 @@ class MovieAttribute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.height/6,
-      child: Card(        
+      width: MediaQuery.of(context).size.height / 6,
+      child: Card(
         elevation: 5,
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),

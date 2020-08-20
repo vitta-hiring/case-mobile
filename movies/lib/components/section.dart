@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class Section extends StatelessWidget {
-
   final String sectionTitle;
   final bool loading;
 
@@ -20,7 +19,7 @@ class Section extends StatelessWidget {
               sectionTitle,
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-             loading ? Text('') : CircularProgressIndicator(),
+            loading ? Text('') : Text(''),
           ],
         ),
       ),

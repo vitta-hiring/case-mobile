@@ -18,8 +18,8 @@ class Dashboard extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.search),
             onPressed: () {
-                _onClickSearch(context);
-              },
+              _onClickSearch(context);
+            },
           )
         ],
       ),
@@ -27,9 +27,9 @@ class Dashboard extends StatelessWidget {
     );
   }
 
-    _onClickSearch(context) async {
-    final movie = await showSearch<Movie>(
-        context: context, delegate: MovieSearch());
+  _onClickSearch(context) async {
+    final movie =
+        await showSearch<Movie>(context: context, delegate: MovieSearch());
     if (movie != null) {
       //alert(context, "Busca", movie.title);
     }

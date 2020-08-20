@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movies/views/dashboard.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -17,7 +18,6 @@ class MyApp extends StatelessWidget {
         ),
         primarySwatch: Colors.deepPurple,
         scaffoldBackgroundColor: Colors.white,
-        
       ),
       home: Dashboard(),
     );

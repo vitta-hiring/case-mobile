@@ -5,65 +5,66 @@
 import 'dart:convert';
 
 class MovieInfo {
-    MovieInfo({
-        this.title,
-        this.year,
-        this.rated,
-        this.released,
-        this.runtime,
-        this.genre,
-        this.director,
-        this.writer,
-        this.actors,
-        this.plot,
-        this.language,
-        this.country,
-        this.awards,
-        this.poster,
-        this.ratings,
-        this.metascore,
-        this.imdbRating,
-        this.imdbVotes,
-        this.imdbId,
-        this.type,
-        this.dvd,
-        this.boxOffice,
-        this.production,
-        this.website,
-        this.response,
-    });
+  MovieInfo({
+    this.title,
+    this.year,
+    this.rated,
+    this.released,
+    this.runtime,
+    this.genre,
+    this.director,
+    this.writer,
+    this.actors,
+    this.plot,
+    this.language,
+    this.country,
+    this.awards,
+    this.poster,
+    this.ratings,
+    this.metascore,
+    this.imdbRating,
+    this.imdbVotes,
+    this.imdbId,
+    this.type,
+    this.dvd,
+    this.boxOffice,
+    this.production,
+    this.website,
+    this.response,
+  });
 
-    String title;
-    String year;
-    String rated;
-    String released;
-    String runtime;
-    String genre;
-    String director;
-    String writer;
-    String actors;
-    String plot;
-    String language;
-    String country;
-    String awards;
-    String poster;
-    List<Rating> ratings;
-    String metascore;
-    String imdbRating;
-    String imdbVotes;
-    String imdbId;
-    String type;
-    String dvd;
-    String boxOffice;
-    String production;
-    String website;
-    String response;
+  String title;
+  String year;
+  String rated;
+  String released;
+  String runtime;
+  String genre;
+  String director;
+  String writer;
+  String actors;
+  String plot;
+  String language;
+  String country;
+  String awards;
+  String poster;
+  List<Rating> ratings;
+  String metascore;
+  String imdbRating;
+  String imdbVotes;
+  String imdbId;
+  String type;
+  String dvd;
+  String boxOffice;
+  String production;
+  String website;
+  String response;
 
-    factory MovieInfo.fromRawJson(String str) => MovieInfo.fromJson(json.decode(str));
+  factory MovieInfo.fromRawJson(String str) =>
+      MovieInfo.fromJson(json.decode(str));
 
-    String toRawJson() => json.encode(toJson());
+  String toRawJson() => json.encode(toJson());
 
-    factory MovieInfo.fromJson(Map<String, dynamic> json) => MovieInfo(
+  factory MovieInfo.fromJson(Map<String, dynamic> json) => MovieInfo(
         title: json["Title"],
         year: json["Year"],
         rated: json["Rated"],
@@ -78,7 +79,8 @@ class MovieInfo {
         country: json["Country"],
         awards: json["Awards"],
         poster: json["Poster"],
-        ratings: List<Rating>.from(json["Ratings"].map((x) => Rating.fromJson(x))),
+        ratings:
+            List<Rating>.from(json["Ratings"].map((x) => Rating.fromJson(x))),
         metascore: json["Metascore"],
         imdbRating: json["imdbRating"],
         imdbVotes: json["imdbVotes"],
@@ -89,9 +91,9 @@ class MovieInfo {
         production: json["Production"],
         website: json["Website"],
         response: json["Response"],
-    );
+      );
 
-    Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() => {
         "Title": title,
         "Year": year,
         "Rated": rated,
@@ -117,29 +119,29 @@ class MovieInfo {
         "Production": production,
         "Website": website,
         "Response": response,
-    };
+      };
 }
 
 class Rating {
-    Rating({
-        this.source,
-        this.value,
-    });
+  Rating({
+    this.source,
+    this.value,
+  });
 
-    String source;
-    String value;
+  String source;
+  String value;
 
-    factory Rating.fromRawJson(String str) => Rating.fromJson(json.decode(str));
+  factory Rating.fromRawJson(String str) => Rating.fromJson(json.decode(str));
 
-    String toRawJson() => json.encode(toJson());
+  String toRawJson() => json.encode(toJson());
 
-    factory Rating.fromJson(Map<String, dynamic> json) => Rating(
+  factory Rating.fromJson(Map<String, dynamic> json) => Rating(
         source: json["Source"],
         value: json["Value"],
-    );
+      );
 
-    Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() => {
         "Source": source,
         "Value": value,
-    };
+      };
 }

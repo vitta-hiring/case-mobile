@@ -5,7 +5,6 @@ import 'package:movies/models/movie.dart';
 import 'package:movies/services/movie.dart';
 
 class VerticalItems extends StatefulWidget {
-
   @override
   _VerticalItemsState createState() => _VerticalItemsState();
 }
