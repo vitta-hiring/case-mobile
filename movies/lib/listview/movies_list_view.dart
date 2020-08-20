@@ -13,6 +13,8 @@ class MoviesListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      physics: NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
       itemCount: movies.length,
       itemBuilder: (context, index) {
         final movie = movies[index];
@@ -21,7 +23,7 @@ class MoviesListView extends StatelessWidget {
             _onClickMovie(context, movie);
           },
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(3.0),
             child: Container(
               child: CardMovie(movie: movie),
             ),

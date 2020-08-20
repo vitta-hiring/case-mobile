@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class Section extends StatelessWidget {
 
   final String sectionTitle;
+  final bool loading;
 
-  const Section({Key key, this.sectionTitle}) : super(key: key);
+  const Section({Key key, this.sectionTitle, this.loading}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +20,7 @@ class Section extends StatelessWidget {
               sectionTitle,
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            FlatButton(
-              onPressed: null,
-              child: Text('Melhores filmes'),
-            )
+             loading ? Text('') : CircularProgressIndicator(),
           ],
         ),
       ),

@@ -9,8 +9,7 @@ class MovieAttribute extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.height/6,
-      child: Card(
-        
+      child: Card(        
         elevation: 5,
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
